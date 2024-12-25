@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Interactive Portfolio</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="FINALWEB.css">
+</head>
+<body>
+    // Заголовок
+    <header class="text-center">
+        <h1>Мое портфолио</h1>
+    </header>
+
+    <section class="intro">
+        <h2>Немного текста</h2>
+        <p>Я Жангир и этот сайт содержит в себе множество различных фотографий, которые мне нравятся. Ведь мне кажется что через фотографии можно передать настроение, эмоции и чувства в момент снимка. Фотография позволяет вам передать свой взгляд на мир. Момент времени, зафиксированный с помощью камеры, длится вечно. Это не изображения, это эпизоды чужой жизни, которые вы можете прочувствовать. </p>
+    </section>
+
+    <section class="mb-5"> 
+        <h2 class="text-center mb-4">Разные альбомы</h2>
+        <div class="d-flex flex-wrap justify-content-center gap-3">
+            <div class="card album">
+                <img src="https://img.freepik.com/free-photo/digital-art-style-autumn-illustration_23-2151704635.jpg?semt=ais_hybrid" class="card-img-top" alt="preview">
+                <div class="card-body">
+                    <h5 class="card-title">Пейзажи</h5>
+                    <button class="btn btn-primary" onclick="showAlbum(1)">Показать</button>
+                </div>
+            </div>
+            <!-- Album 2 -->
+            <div class="card album">
+                <img src="https://static.tildacdn.com/tild3338-3735-4234-b131-363838303533/photo.png" class="card-img-top" alt="preview2">
+                <div class="card-body">
+                    <h5 class="card-title">Животные</h5>
+                    <button class="btn btn-primary" onclick="showAlbum(2)">Показать</button>
+                </div>
+            </div>
+            <!-- Album 3 -->
+            <div class="card album">
+                <img src="https://s13.stc.yc.kpcdn.net/share/i/12/11199205/wr-960.webp" class="card-img-top" alt="preview3">
+                <div class="card-body">
+                    <h5 class="card-title">Звездное небо</h5>
+                    <button class="btn btn-primary" onclick="showAlbum(3)">Показать</button>
+                </div>
+            </div>
+        </div>
+        
+
+        <!-- Modal for Albums -->
+        <div class="modal fade" id="albumModal" tabindex="-1" aria-labelledby="albumModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="albumModalLabel">Альбом</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body d-flex flex-wrap gap-3">
+                        <div id="albumContent"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <h2 class="text-center mb-4" style="margin-top: 250px;">Галерея личных фотографий</h2>
+        <div class="gallery">
+            <img src="photo_5424867136406412655_y.jpg" alt="Photo 1">
+            <img src="photo_5429231841086400973_y.jpg" alt="Photo 2">
+            <img src="photo_5429231841086400974_y.jpg" alt="Photo 3">
+            <img src="photo_5429231841086400975_y.jpg" alt="Photo 4">
+            <img src="photo_5429231841086400976_y.jpg" alt="Photo 5">
+            <img src="photo_5429231841086400977_y.jpg" alt="Photo 6">
+            <img src="photo_5429231841086400978_y.jpg" alt="Photo 7">
+            <img src="photo_5429231841086400979_y.jpg" alt="Photo 8">
+            <img src="photo_5429231841086400980_y.jpg" alt="Photo 9">
+        </div>
+    </section>
+
+    <section class="container">
+        <h2 class="text-center mb-4">Оставляйте запросы на фотографии</h2>
+        <form id="contactForm">
+            <div class="mb-3">
+                <label for="name" class="form-label">Имя</label>
+                <input type="text" class="form-control" id="name" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" required>
+            </div>
+            <div class="mb-3">
+                <label for="message" class="form-label">Сообщение</label>
+                <textarea class="form-control" id="message" rows="3" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-success">Send</button>
+        </form>
+    </section>
+    
+    <footer>
+        <p>&copy; Портфолио 2024 Файнал по ВЕБ. Права не защищены :(</p>
+    </footer>
+
+    <script>
+        const albums = {
+            1: [
+                'https://m.ticketon.kz/files/images/72_main.jpg',
+                'https://media-cdn.tripadvisor.com/media/photo-s/11/67/7a/56/caption.jpg',
+                'https://sxodim.com/uploads/posts/2023/06/02/optimized/c4e9a62d7e0073901bfec3f080b89a34_1400x790-q-85.jpg',
+                'https://cs13.pikabu.ru/post_img/big/2024/02/29/7/170920567519556432.jpg',
+                'https://media.istockphoto.com/id/517188688/ru/%D1%84%D0%BE%D1%82%D0%BE/%D0%B3%D0%BE%D1%80%D0%BD%D1%8B%D0%B9-%D0%BB%D0%B0%D0%BD%D0%B4%D1%88%D0%B0%D1%84%D1%82.jpg?s=612x612&w=0&k=20&c=6Qfb5YCLIkiq_hYxRmTj8t2FWwr4Yrdq2CRGVwj5Ymk='
+            ],
+            2: [
+                'https://c.files.bbci.co.uk/4B5A/production/_102609291_animals7.jpg',
+                'https://здоровыйхабаровск.рф/wp-content/uploads/2022/07/55.jpg',
+                'https://ichef.bbci.co.uk/ace/ws/640/cpsprodpb/475B/production/_98776281_gettyimages-521697453.jpg.webp',
+                'https://petfood.ru/upload/medialibrary/e8d/15466861429660.jpg',
+                'https://100-hvostov.ru/images/gryzuny/gryzuny-006-01.webp'
+            ],
+            3: [
+                'https://cdnn1.img.sputnik-abkhazia.info/img/07e6/08/19/1041137633_0:160:3072:1888_1920x0_80_0_0_f925b57e7fec1321f0611c101ddfc03c.jpg',
+                'https://naked-science.ru/wp-content/uploads/2016/04/article_550835.jpg',
+                'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/92/75/7c/caption.jpg?w=1200&h=700&s=1&cx=1059&cy=707&chk=v1_0f1c894e5ff7ff690cc4',
+                'https://contentography.com/wp-content/uploads/2022/10/nathan-anderson-l95xdkssuww-unsplash-1024x689.jpg',
+                'https://rainz.ru/upload/iblock/fc8/7703exsiyhybugjxeguasz213127q91g/zvezdnoe-nebo.jpg'
+            ]
+        };
+
+        function showAlbum(albumId) {
+            const albumContent = document.getElementById('albumContent');
+            albumContent.innerHTML = albums[albumId]
+                .map(src => `<img src="${src}" class="img-thumbnail" style="width: 700px; height: auto;">`)
+                .join('');
+            const modal = new bootstrap.Modal(document.getElementById('albumModal'));
+            modal.show();
+        }
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Ваши данные и сообщение были отправлены, спасибо');
+        });
+
+        function notify(message) {
+            alert(message);
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #ffeae1;
+    color: #333;
+}
+header {
+    font-family: 'Frank Ruhl Libre', sans-serif;
+    background: linear-gradient(12deg, #edbda6, #b58f5d); 
+    color: white;
+    padding: 5rem 0;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); 
+}
+h1, h2 {
+    font-weight: bold;
+    letter-spacing: 1px; /* расстояние между буквами*/
+}
+.intro {
+    text-align: center; /* центрирование текста */
+    padding: 3rem 1rem; /* Создает внутренний отступ (3 рем сверху и снизу, 1 рем по бокам). */
+    font-size: 1.1rem; 
+    line-height: 1.5; /* высота строк*/
+    color: #555;
+}
+footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    font-size: 0.9rem;
+}
+.card {
+    border: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* анимация, масштаб и тень*/
+    border-radius: 10px; /* закругление углов */
+    overflow: hidden; /* скрывает содерживое  за рамками */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.card:hover {
+    transform: scale(1.05); /*увеличивает на 5% */
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+.card-img-top {
+    border-bottom: 2px solid #e0e0e0;
+    transition: opacity 0.3s ease;
+    width: 600px;
+    height: 400px;
+}
+.card-body {
+    background-color: #fff;
+    padding: 1.5rem;
+}
+.card-body h5 {
+    font-size: 1.2rem;
+    color: #333;
+}
+.btn {
+    background-color: #a57d4d;
+    border-color: #a57d4d;
+    padding: 0.8rem 2rem;
+    border-radius: 30px;
+    transition: background-color 0.3s ease;
+}
+.btn:hover, .btn:active {
+    background-color: #6f4e37 !important;
+    border-color: #6f4e37 !important;
+}
+.gallery {
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 2rem 0;
+}
+.gallery img {
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    height: 500px;
+    width: 100%;
+    object-fit: cover;
+}
+.gallery img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+form {
+    background: #fff;
+    padding: 3rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+form .form-label {
+    font-size: 1rem;
+    color: #555;
+}
+form .form-control {
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    padding: 0.75rem;
+}
